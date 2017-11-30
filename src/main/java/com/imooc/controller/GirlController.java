@@ -2,6 +2,8 @@ package com.imooc.controller;
 
 import com.imooc.entity.Girl;
 import com.imooc.repository.GirlRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,9 @@ import java.util.List;
  */
 @RestController
 public class GirlController {
+
+    private final static Logger logger = LoggerFactory.getLogger(GirlController.class);
+
     @Autowired
     private GirlRepository girlRepository;
 
@@ -25,6 +30,7 @@ public class GirlController {
      */
     @GetMapping(value = "/girls")
     public List<Girl> girlList(){
+        logger.info("girlList");
         return girlRepository.findAll();
     }
 
@@ -51,6 +57,7 @@ public class GirlController {
      */
     @GetMapping(value = "/girls/{id}")
     public Girl girlFindOne(@PathVariable("id") Integer id){
+        logger.info("girlFindOne");
         return  girlRepository.findOne(id);
     }
 
