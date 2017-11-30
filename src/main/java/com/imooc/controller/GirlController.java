@@ -46,6 +46,7 @@ public class GirlController {
         }
         girl.setCupSize(girl.getCupSize());
         girl.setAge(girl.getAge());
+        girl.setMoney(girl.getMoney());
 
         return girlRepository.save(girl);
     }
@@ -71,11 +72,13 @@ public class GirlController {
     @PutMapping(value = "/girls/{id}")
     public Girl girlUpdate(@PathVariable("id") Integer id,
                            @RequestParam("cupSize") String cupSize,
-                           @RequestParam("age") Integer age){
+                           @RequestParam("age") Integer age,
+                           @RequestParam("money") double money){
         Girl girl = new Girl();
         girl.setId(id);
         girl.setCupSize(cupSize);
         girl.setAge(age);
+        girl.setMoney(money);
 
         return girlRepository.save(girl);
     }

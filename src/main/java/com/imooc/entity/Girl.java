@@ -9,6 +9,7 @@ import javax.validation.constraints.Min;
  * @author 向亚林
  * 2017/11/29
  */
+@SuppressWarnings("unused")
 @Entity
 public class Girl {
     @Id
@@ -17,6 +18,7 @@ public class Girl {
     private String cupSize;
     @Min(value = 18, message = "未成年少女禁止入内")
     private Integer age;
+    private double money;
 
     public Girl() {
     }
@@ -43,5 +45,23 @@ public class Girl {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
+    }
+
+    @Override
+    public String toString() {
+        return "Girl{" +
+                "id=" + id +
+                ", cupSize='" + cupSize + '\'' +
+                ", age=" + age +
+                ", money=" + money +
+                '}';
     }
 }
